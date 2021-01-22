@@ -1,4 +1,6 @@
 // const token = 1570803425:AAFTc98VjXsLdj7upd8ZuaDQuZ2vy7m2M18
+const express = require("express");
+const app = express()
 
 const { Telegraf } = require('telegraf')
 const url = "https://www.winamax.es/apuestas-deportivas/match/";
@@ -7,6 +9,20 @@ let frecuencia = 5 * 60;
 const secret = 34729
 
 const bot = new Telegraf("1570803425:AAFTc98VjXsLdj7upd8ZuaDQuZ2vy7m2M18");
+
+
+const port = process.env.PORT;
+
+
+app.get('/', (req, res) => {
+    res.send('Hello World!')
+})
+
+app.listen(port, () => {
+    console.log(`Example app listening at http://localhost:${port}`)
+})
+
+
 
 
 
@@ -95,7 +111,7 @@ bot.launch();
 
 const puppeteer = require("puppeteer");
 
-const app = async () => {
+const scrapper = async () => {
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
 
@@ -127,6 +143,6 @@ const app = async () => {
 }
 
 setInterval(function () {
-    app();
+    scrapper();
 }, frecuencia * 1000);
 
