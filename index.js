@@ -8,7 +8,7 @@ let matchList = ["https://www.winamax.es/apuestas-deportivas/match/10000000", "h
 let frecuencia = 5 * 60;
 const secret = 34729
 
-const bot = new Telegraf("1570803425:AAFTc98VjXsLdj7upd8ZuaDQuZ2vy7m2M18");
+const bot = new Telegraf(process.env.TOKEN);
 
 
 const port = process.env.PORT;
